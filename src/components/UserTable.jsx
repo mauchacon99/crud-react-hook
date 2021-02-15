@@ -3,8 +3,7 @@ import React  from "react";
 const UserTable = (props) => {
      
     return (
-        
-            <table className="table">
+        <table className="table">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
@@ -13,27 +12,26 @@ const UserTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.users.length > 0 ?
-                    props.users.map( user => ( 
-                        <tr key={user.id}>
-                            <td> {user.name} </td>
-                            <td> {user.surname} </td>
-                            <td>
-                                <button onClick={() => props.editRow(user)}> Edit</button>
-                                <button className="btn-danger" onClick={() => props.deleteUser(user.id)}> Delete </button>
-                            </td>
+            {props.users.length > 0 ?
+                props.users.map( user => ( 
+                    <tr key={user.id}>
+                        <td> {user.name} </td>
+                        <td> {user.surname} </td>
+                        <td>
+                            <button onClick={() => props.editRow(user)}> Edit</button>
+                            <button className="btn-danger" onClick={() => props.deleteUser(user.id)}> Delete </button>
+                        </td>
+                    </tr>
+                )) :(
+                        <tr>
+                            <td> No hay Usuarios</td>
                         </tr>
-                    )) :(
-                            <tr>
-                                <td> No hay Usuarios</td>
-                            </tr>
-                    )
-                    
-                }
+                )
                 
-            </tbody>
-            </table>
-    
+            }
+            
+        </tbody>
+        </table>
     )
 }
 

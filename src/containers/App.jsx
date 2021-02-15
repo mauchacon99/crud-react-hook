@@ -9,48 +9,48 @@ import { v4 as id} from "uuid"
 const App = () => { 
 
     const usersData = [
-        {id: id() ,  name: "Mauricio", surname: "Chacon "},
-        {id: id() ,  name: "Jose", surname: "Perez "},
-        {id: id() ,  name: "Yubelka", surname: "Muniz "},
-        {id: id() ,  name: "Maria", surname: "Becerra "},
-  ]
-  const [ users, setUsers] = useState(usersData)
-  const [ editing, setEditing] = useState(true)
+            {id: id() ,  name: "Mauricio", surname: "Chacon "},
+            {id: id() ,  name: "Jose", surname: "Perez "},
+            {id: id() ,  name: "Yubelka", surname: "Muniz "},
+            {id: id() ,  name: "Maria", surname: "Becerra "},
+    ]
+    const [ users, setUsers] = useState(usersData)
+    const [ editing, setEditing] = useState(true)
 
-  const [ currentUser, setcurrentUser] = useState({
-    id:null, name:'', surname:''
-})
+    const [ currentUser, setcurrentUser] = useState({
+        id:null, name:'', surname:''
+    })
 
-const updateUser = (id, updateUser) =>{
-    setEditing(true)
-    let value = users.map(user => (user.id === id ? updateUser : user) )
-    setUsers(value)
+    const updateUser = (id, updateUser) =>{
+        setEditing(true)
+        let value = users.map(user => (user.id === id ? updateUser : user) )
+        setUsers(value)
 
 
-}
+    }
 
-const editRow = (user) => {
-      setEditing(false)
-      setcurrentUser({
-          id:user.id, name:user.name, surname:user.surname
-      })
-}
+    const editRow = (user) => {
+        setEditing(false)
+        setcurrentUser({
+            id:user.id, name:user.name, surname:user.surname
+        })
+    }
 
   // Crear 
-  const AddUser = (user) => {
-        user.id = id()
-        setUsers([
-            ...users,
-            user
-        ])
-  }
+    const AddUser = (user) => {
+            user.id = id()
+            setUsers([
+                ...users,
+                user
+            ])
+    }
   // Eliminar
 
-  const deleteUser = (id) => {
-        let array = users.filter( user => user.id !== id)
+    const deleteUser = (id) => {
+            let array = users.filter( user => user.id !== id)
 
-        setUsers(array)
-  }
+            setUsers(array)
+    }
 
     return (
         <div className="container">

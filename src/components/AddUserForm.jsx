@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form'
 const AddUserForm = (props) =>{
 
     const {register, errors, handleSubmit} = useForm();
-
     const onSubmit = (data, e) => {
         props.AddUser(data)
         e.target.reset()
     }
+    
     return(
         <Fragment>
              <form onSubmit={handleSubmit(onSubmit)}>

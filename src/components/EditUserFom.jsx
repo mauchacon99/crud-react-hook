@@ -2,8 +2,7 @@ import React, { Fragment } from "react"
 import { useForm } from 'react-hook-form'
 
 
-const EditUserForm = (props) =>{
- 
+    const EditUserForm = (props) =>{
     const {register, errors, handleSubmit, setValue} = useForm({
         defaultValues:props.currentUser
     });
@@ -17,6 +16,7 @@ const EditUserForm = (props) =>{
 
     setValue('name', props.currentUser.name )
     setValue('surname', props.currentUser.surname )
+
     return(
         <Fragment>
              <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +45,6 @@ const EditUserForm = (props) =>{
                 <div>
                     {errors.surname?.message}
                 </div>
-                
                 <button type="submit" className="btn btn-primary"> Edit User</button>
              </form>
         </Fragment>
